@@ -1,0 +1,25 @@
+{
+  "name": "goit-node-hw01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenMerch/goit-node-hw01.git"
+  },
+  "keywords": [],
+  "author": "denys <Denys@mai.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenMerch/goit-node-hw01/issues"
+  },
+  "homepage": "https://github.com/DenMerch/goit-node-hw01#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
