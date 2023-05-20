@@ -2,20 +2,12 @@ const fs = require("fs").promises;
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
 
-
 const contactsPath = path.join(__dirname, "db", "contacts.json")
-
-
-// const writeFile = async (_, data) => {
-//     try {
-//         await fs.writeFile(contactsPath, data)
-//     } catch (error) {
-//     }
-
 
 async function listContacts() {
     try {
         const data = await fs.readFile(`${contactsPath}`, "utf-8")
+
         return JSON.parse(data)
 
     } catch (error) {
@@ -26,6 +18,7 @@ async function listContacts() {
 async function getContactById(contactId) {
     try {
         const data = await listContacts()
+
         return data.filter(contact => contact.id === contactId)
 
     } catch (error) {
@@ -33,19 +26,18 @@ async function getContactById(contactId) {
     }
 }
 
-
 async function removeContact(contactId) {
     try {
         const data = await listContacts();
         const newData = data.filter(contact => contact.id !== contactId)
         console.log(`Contact with id:${contactId} removed successfully`);
+
         return await fs.writeFile(`${contactsPath}`, JSON.stringify(newData))
 
     } catch (error) {
         console.log(error.message);
     }
 }
-
 
 async function addContact(name, email, phone) {
     try {
@@ -60,6 +52,7 @@ async function addContact(name, email, phone) {
         console.log(contact);
 
         return await fs.writeFile(`${contactsPath}`, JSON.stringify(newData))
+
     } catch (error) {
         console.log(error.message);
     }
